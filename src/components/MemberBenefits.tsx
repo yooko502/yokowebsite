@@ -2,23 +2,23 @@ import { Col, Row } from "antd";
 import Avatar from "antd/lib/avatar";
 import List from "antd/lib/list";
 
-const MemberBenefits = () =>{
+const MemberBenefits = () => {
     const data = [
         {
-          title: 'Ant Design Title 1',
+            title: 'Ant Design Title 1',
         },
         {
-          title: 'Ant Design Title 2',
+            title: 'Ant Design Title 2',
         },
         {
-          title: 'Ant Design Title 3',
+            title: 'Ant Design Title 3',
         },
         {
-          title: 'Ant Design Title 4',
+            title: 'Ant Design Title 4',
         },
-      ];
-      
-    return(
+    ];
+
+    return (
         <div
             id="memberbenefits"
             style={{
@@ -31,27 +31,27 @@ const MemberBenefits = () =>{
                     <h1>🎁 组员福利</h1>
                 </Col>
                 <Col span={24}>
-                <div>
-                <List
-                    itemLayout="horizontal"
-                    dataSource={data}
-                    split={false}
-                    renderItem={(item) => (
-                    <List.Item>
-                        <List.Item.Meta
-                            style={{
-                                textAlign: "center"
-                            }}
-                            // avatar={<Avatar
-                            //     src="https://joeschmoe.io/api/v1/random" />}
-                                title={<><Avatar
-                                    src="https://joeschmoe.io/api/v1/random" />{`🥇${item.title}`}</>}
-                            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                    <div>
+                        <List
+                            itemLayout="horizontal"
+                            dataSource={data}
+                            split={false}
+                            renderItem={(item) => (
+                                <List.Item>
+                                    <List.Item.Meta
+                                        style={{
+                                            textAlign: "center"
+                                        }}
+                                        // avatar={<Avatar
+                                        //     src="https://joeschmoe.io/api/v1/random" />}
+                                        title={<><Avatar
+                                            src="https://joeschmoe.io/api/v1/random" />{`🥇${item.title}`}</>}
+                                        description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                                    />
+                                </List.Item>
+                            )}
                         />
-                    </List.Item>
-                    )}
-                />
-            </div>
+                    </div>
                 </Col>
             </Row>
         </div>
