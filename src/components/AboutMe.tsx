@@ -16,7 +16,7 @@ const AbouteMe = () => {
       </div>
       <br />
       <h3>哈喽，你好呀！🐰</h3>
-      <h2 className="font-black uppercase pt-8 pb-8 text-3xl text-yellow-500">
+      <h2>
         👋 我是叶子
       </h2>
       {[
@@ -27,7 +27,6 @@ const AbouteMe = () => {
         return (
           <p
             key={index}
-            className="w-full md:w-2/3 mr-auto ml-auto text-gray-500 text-base"
           >
             {item}
           </p>

@@ -1,7 +1,5 @@
 import Card from "antd/lib/card";
-import Col from "antd/lib/col";
 import Collapse from "antd/lib/collapse";
-import Row from "antd/lib/row";
 
 const AbouteWebSite = () => {
     const textArr = [
@@ -36,10 +34,6 @@ const AbouteWebSite = () => {
                         showArrow={false}
                         header={item.title}
                         key={item.id}
-                        style={{
-                            // width: "100%",
-                            // textAlign:"left"
-                        }}
                     >
                         <p>{item.text}</p>
                     </Collapse.Panel>

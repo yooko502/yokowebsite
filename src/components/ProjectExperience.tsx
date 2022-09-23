@@ -1,5 +1,4 @@
 import Card from "antd/lib/card";
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import Meta from "antd/lib/card/Meta";
 import Avatar from "antd/lib/avatar";
 import Row from "antd/lib/row";
@@ -14,21 +13,21 @@ const ProjectExperience = () => {
             title: "自社开发 以iot为基础的BI,AI项目",
             description: "主要负责前端页面开发，前后端端口定义，后端api",
             label: ["#react", "#typescript", "#python"],
-            detail:"qqqqq",
+            detail: "qqqqq",
         },
         {
             id: "002",
             title: "面向政府 中小企业厅补助金项目",
             description: "负责前端所有开发任务，参与task制定，接口定义",
             label: ["#vue", "#aws", "#python"],
-            detail:"wwww",
+            detail: "wwww",
         },
         {
             id: "003",
             title: "出售各类演出的票务会员系统",
             description: "新规项目，主要负责编写详细设计书，batch开发",
             label: ["#laravel", "#php"],
-            detail:"eeeee",
+            detail: "eeeee",
         },
     ]
 
@@ -95,7 +94,7 @@ const ProjectExperience = () => {
                                                 src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
                                             />
                                         }
-                                        onClick={()=>showModal(item.title, item.detail)}
+                                        onClick={() => showModal(item.title, item.detail)}
                                     >
                                         <Meta
                                             avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
@@ -109,7 +108,7 @@ const ProjectExperience = () => {
                     }
                 </Row>
             </div>
-            <Modal 
+            <Modal
                 title={modalTitle}
                 open={isModalOpen}
                 onCancel={handleCancel}
