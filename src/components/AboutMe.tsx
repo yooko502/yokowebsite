@@ -11,13 +11,13 @@ const AbouteMe = () => {
       <div>
         <Avatar
           size={200}
-          src="logo001.JPG"
+          src="avatar.JPG"
         />
       </div>
       <br />
       <h3>哈喽，你好呀！🐰</h3>
       <h2>
-        👋 我是叶子
+        👋 我是杨
       </h2>
       {[
         "很开心你点开了我的网站。",
