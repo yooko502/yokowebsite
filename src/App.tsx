@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashLink } from "react-router-hash-link";
-
 import 'antd/dist/antd.css';
 import './index.css';
 import './App.css';
@@ -16,11 +15,20 @@ const { Link } = Anchor;
 const { Header, Content, Footer } = Layout;
 
 function App() {
-  const scrollWithOffset = (el:any) => {
+  const scrollWithOffset = (el: any) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -85;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
   };
+
+  const menu_data = [
+    { link: "#aboutme", title: "关于我" },
+    { link: "#projectexperience", title: "最近项目" },
+    { link: "#skill", title: "我的技能" },
+    { link: "#memberbenefits", title: "组员福利" },
+    { link: "#interest", title: "我的兴趣" },
+    // { link: "#contactme", title: "联系我" },
+  ]
 
   return (
     <Layout style={{
@@ -51,63 +59,21 @@ function App() {
             // defaultSelectedKeys={['1']}
             // items={menu_data()}
             >
-              <Menu.Item>
-              <HashLink
-                smooth
-                to="#aboutme"
-                scroll={(el) => scrollWithOffset(el)}
-                className="px-3 py-2 flex items-center text-base uppercase font-bold text-gray-800 hover:text-gray-600"
-              >
-                <span>关于我</span>
-              </HashLink>
-              </Menu.Item>
-              <Menu.Item>
-              <HashLink
-                smooth
-                to="#projectexperience"
-                scroll={(el) => scrollWithOffset(el)}
-              >
-                <span>最近项目</span>
-              </HashLink>
-              </Menu.Item>
-              <Menu.Item>
-              <HashLink
-                smooth
-                to="#skill"
-                scroll={(el) => scrollWithOffset(el)}
-              >
-                <span>我的技能</span>
-              </HashLink>
-              </Menu.Item>
-              <Menu.Item>
-              <HashLink
-                smooth
-                to="#memberbenefits"
-                scroll={(el) => scrollWithOffset(el)}
-              >
-                <span>组员福利</span>
-              </HashLink>
-              </Menu.Item>
-              <Menu.Item>
-              <HashLink
-                smooth
-                to="#interest"
-                scroll={(el) => scrollWithOffset(el)}
-              >
-                <span>我的兴趣</span>
-              </HashLink>
-              </Menu.Item>
-              <Menu.Item>
-              <HashLink
-                smooth
-                to="#contactme"
-                scroll={(el) => scrollWithOffset(el)}
-              >
-                <span>联系我</span>
-              </HashLink>
-              </Menu.Item>
-              <Menu.Item>
-                <a 
+              {
+                menu_data.map((item, index) => (
+                  <Menu.Item key={index}>
+                    <HashLink
+                      smooth
+                      to={item.link}
+                      scroll={(el) => scrollWithOffset(el)}
+                    >
+                      <span>{item.title}</span>
+                    </HashLink>
+                  </Menu.Item>
+                ))
+              }
+              <Menu.Item key="yang_cv">
+                <a
                   href={"yang_cv.pdf"}
                   download
                 >
@@ -147,9 +113,9 @@ function App() {
           <Col span={24}>
             <Interest />
           </Col>
-          <Col span={24}>
+          {/* <Col span={24}>
             <ContactMe />
-          </Col>
+          </Col> */}
         </Row>
       </Content>
       <Footer

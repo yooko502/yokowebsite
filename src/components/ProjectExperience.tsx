@@ -10,24 +10,35 @@ const ProjectExperience = () => {
     const project_data = [
         {
             id: "001",
-            title: "自社开发 以iot为基础的BI,AI项目",
-            description: "主要负责前端页面开发，前后端端口定义，后端api",
-            label: ["#react", "#typescript", "#python"],
-            detail: "qqqqq",
+            title: "新规项目 BI,AI项目",
+            description: "负责前端页面开发，前后端接口定义，后端api",
+            label: ["#react", "#typescript", "#python", "#postgresql"],
+            detail: 
+                `此项目为敏捷开发项目，本项目前端采用react框架，后端使用python的flask框架，
+                在这个项目中，我担当sublead的职责，
+                主要负责前端页面开发和接口定义，api编写，并协同现场面试其他协力者，
+                提供面试问题，评价面试的协力者能力等。同时，也参与了部分db
+                定义和修改。`,
         },
         {
             id: "002",
-            title: "面向政府 中小企业厅补助金项目",
-            description: "负责前端所有开发任务，参与task制定，接口定义",
-            label: ["#vue", "#aws", "#python"],
-            detail: "wwww",
+            title: "新规项目 日本中小企业厅补助金项目",
+            description: "负责前端所有开发任务，参与task制定",
+            label: ["#vue", "#aws", "#python", "#postgresql"],
+            detail: 
+                `
+                此项目为敏捷开发的完全新规项目，所有开发基于aws提供的服务，前端采用vue框架使用aws cloud9进行协同开发，
+                后端使用python依托于aws api geteway，aws lambda构筑的service less架构。我担当sublead的职责，
+                负责所有前端的统筹（分配task给组员，指定task完成时长，参与每2周的发布），设计，实装等工作。`,
         },
         {
             id: "003",
-            title: "出售各类演出的票务会员系统",
-            description: "新规项目，主要负责编写详细设计书，batch开发",
-            label: ["#laravel", "#php"],
-            detail: "eeeee",
+            title: "新规项目 演出的票务会员系统",
+            description: "新规项目，负责编写详细设计书，batch开发",
+            label: ["#laravel", "#php", "#mysql", "#docker"],
+            detail: 
+                `本项目为新规项目，采用laravel框架，数据库使用的是mysql。
+                我在前期参与了db关系梳理，编写ddl等，后期主要负责详细设计书的编写，以及用户通知batch的实装。`,
         },
     ]
 
@@ -58,10 +69,6 @@ const ProjectExperience = () => {
         setModalDetail(detail)
     };
 
-    const handleOk = () => {
-        setIsModalOpen(false);
-    };
-
     const handleCancel = () => {
         setIsModalOpen(false);
     };
@@ -79,13 +86,12 @@ const ProjectExperience = () => {
                 <Row gutter={[32, 32]} justify='center'>
                     {
                         project_data.map(item => (
-                            <div>
+                            <div key={item.id}>
                                 <Col span={8}>
 
                                     <Card
-                                        key={item.id}
                                         style={{
-                                            width: 450,
+                                            width: 400,
                                         }}
                                         hoverable={true}
                                         cover={

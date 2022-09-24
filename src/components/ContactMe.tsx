@@ -1,6 +1,7 @@
 import Button from "antd/lib/button";
 import Form from "antd/lib/form";
 import Input from "antd/lib/input";
+import axios from "axios";
 
 const ContactMe = () => {
     const layout = {
@@ -26,6 +27,16 @@ const ContactMe = () => {
 
     const onFinish = (values: any) => {
         console.log(values);
+        axios.post('/user', {
+            name: values.user.name,
+            email: values.user.email
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     };
     return (
         <div
@@ -43,11 +54,11 @@ const ContactMe = () => {
                     <Form.Item
                         name={['user', 'name']}
                         label="Name"
-                    // rules={[
-                    //     {
-                    //         required: true,
-                    //     },
-                    // ]}
+                        rules={[
+                            {
+                                required: true,
+                            },
+                        ]}
                     >
                         <Input />
                     </Form.Item>
@@ -68,7 +79,7 @@ const ContactMe = () => {
                     </Form.Item>
                     <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
                         <Button type="primary" htmlType="submit">
-                            送信给我 ❤️
+                            送信给我
                         </Button>
                     </Form.Item>
                 </Form>

@@ -71,10 +71,13 @@ export default function Skill() {
         🔧 我的技能
       </h2>
       {
-        skill_data.map(item => (
-          <div style={{
-            padding: 20
-          }}>
+        skill_data.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              padding: 20
+            }}
+          >
             <h3 style={{ paddingBottom: 15 }}>
               {item.title}
             </h3>
@@ -100,6 +103,7 @@ export default function Skill() {
           </div>
         ))
       }
+      <p>更多技能请下载我的简历查看哦～</p>
     </div>
   );
 }
