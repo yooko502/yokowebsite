@@ -1,6 +1,8 @@
 import Avatar from 'antd/lib/avatar';
+import { useTranslation } from 'react-i18next';
 
 const AbouteMe = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div
       id="aboutme"
@@ -15,20 +17,20 @@ const AbouteMe = () => {
         />
       </div>
       <br />
-      <h3>哈喽，你好呀！🐰</h3>
+      <h3>{t('hello')}</h3>
       <h2>
-        👋 我是杨
+        {(t('yang'))}
       </h2>
       {[
-        "很开心你点开了我的网站。",
-        "我很喜欢写代码带来的成就感，希望你也是。",
-        "未来就让我们一起愉快的写代码吧💕",
+        "look_website",
+        "like_coding",
+        "future",
       ].map((item, index) => {
         return (
           <p
             key={index}
           >
-            {item}
+            {t(item)}
           </p>
         );
       })}

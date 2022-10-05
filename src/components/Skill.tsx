@@ -20,11 +20,13 @@ import Row from "antd/lib/row";
 import Col from "antd/lib/col";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "antd/lib/card";
+import { useTranslation } from 'react-i18next';
 
 export default function Skill() {
+  const { t } = useTranslation();
   const skill_data = [
     {
-      title: "⌨️ 语言",
+      title: "language",
       skills: [
         // 图标来源：https://fontawesome.com/icons
         { name: "JavaScript/TypeScript", icon: faJs },
@@ -37,7 +39,7 @@ export default function Skill() {
       ]
     },
     {
-      title: "📚 库/框架",
+      title: "library",
       skills: [
         { name: "React", icon: faReact },
         { name: "Vue", icon: faVuejs },
@@ -46,11 +48,12 @@ export default function Skill() {
         { name: "Antd", icon: faCodepen },
         { name: "Vuetify", icon: faCodepen },
         { name: "Axios", icon: faCodepen },
-        { name: "Fetch", icon: faCodepen },
+        { name: "Ahooks", icon: faCodepen },
+        { name: "React-hook-form", icon: faCodepen },
       ]
     },
     {
-      title: "🔨 工具",
+      title: "tool",
       skills: [
         { name: "Git", icon: faGit },
         { name: "VSCode", icon: faCodepen },
@@ -68,7 +71,7 @@ export default function Skill() {
       }}
     >
       <h2>
-        🔧 我的技能
+        {t('my_skill')}
       </h2>
       {
         skill_data.map((item, index) => (
@@ -79,7 +82,7 @@ export default function Skill() {
             }}
           >
             <h3 style={{ paddingBottom: 15 }}>
-              {item.title}
+              {t(item.title)}
             </h3>
             <div>
               <Row gutter={[32, 24]} justify='center'>
@@ -103,7 +106,7 @@ export default function Skill() {
           </div>
         ))
       }
-      <p>更多技能请下载我的简历查看哦～</p>
+      <p>{t('download_my_cv')}</p>
     </div>
   );
 }

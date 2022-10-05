@@ -3,7 +3,7 @@ import { HashLink } from "react-router-hash-link";
 import 'antd/dist/antd.css';
 import './index.css';
 import './App.css';
-import { Anchor, Col, Layout, Menu, Row } from 'antd';
+import { Anchor, Button, Col, Dropdown, Layout, Menu, Row, Space, Typography } from 'antd';
 import AbouteMe from './components/AboutMe';
 import ProjectExperience from './components/ProjectExperience';
 import AbouteWebSite from './components/AbouteWebSite';
@@ -11,10 +11,14 @@ import Interest from './components/Interest';
 import MemberBenefits from './components/MemberBenefits';
 import Skill from './components/Skill';
 import ContactMe from './components/ContactMe';
+import { useTranslation } from 'react-i18next';
+import { DownOutlined } from '@ant-design/icons';
+
 const { Link } = Anchor;
 const { Header, Content, Footer } = Layout;
 
 function App() {
+  const { t, i18n } = useTranslation();
   const scrollWithOffset = (el: any) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
     const yOffset = -85;
@@ -22,13 +26,34 @@ function App() {
   };
 
   const menu_data = [
-    { link: "#aboutme", title: "关于我" },
-    { link: "#projectexperience", title: "最近项目" },
-    { link: "#skill", title: "我的技能" },
-    { link: "#memberbenefits", title: "组员福利" },
-    { link: "#interest", title: "我的兴趣" },
+    { link: "#aboutme", title: "about_me" },
+    { link: "#projectexperience", title: "project" },
+    { link: "#skill", title: "skill" },
+    { link: "#memberbenefits", title: "memberbenefits" },
+    { link: "#interest", title: "interest" },
     // { link: "#contactme", title: "联系我" },
   ]
+
+  const languageChange = (language_type: string) =>{
+    i18n.changeLanguage(language_type);
+  }
+
+  const language_data = () => (
+    <Menu
+      theme="dark"
+      // style={{ backgroundColor: '#4d9abf', color: '#a3e8fb', borderBottom: 'hidden' }}
+      mode="horizontal"
+    // defaultSelectedKeys={['1']}
+    // items={menu_data()}
+    >
+      <Menu.Item key="japanese" onClick={()=>languageChange("ja")}>
+        <span>{t('japanese')}</span>
+      </Menu.Item>
+      <Menu.Item key="chinese" onClick={()=>languageChange("cn")}>
+        <span>{t('chinese')}</span>
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <Layout style={{
@@ -50,8 +75,16 @@ function App() {
           justify='space-between'
         >
           <Col>
+            <Dropdown overlay={language_data} placement="bottomLeft">
+              <Typography.Link>
+                <Space>
+                  <Button type="text" style={{color: "white"}}>{t('translatison')}</Button>
+                </Space>
+              </Typography.Link>
+            </Dropdown>
           </Col>
           <Col>
+
             <Menu
               theme="dark"
               style={{ backgroundColor: '#4d9abf', color: '#a3e8fb', borderBottom: 'hidden' }}
@@ -67,7 +100,7 @@ function App() {
                       to={item.link}
                       scroll={(el) => scrollWithOffset(el)}
                     >
-                      <span>{item.title}</span>
+                      <span>{t(item.title)}</span>
                     </HashLink>
                   </Menu.Item>
                 ))
@@ -77,7 +110,7 @@ function App() {
                   href={"yang_cv.pdf"}
                   download
                 >
-                  <span>我的简历</span>
+                  <span>{t('my_cv')}</span>
                 </a>
               </Menu.Item>
             </Menu>
