@@ -72,7 +72,7 @@ function App() {
         }}
       >
         <Row
-          justify='space-between'
+          justify='end'
         >
           <Col>
             <Dropdown overlay={language_data} placement="bottomLeft">

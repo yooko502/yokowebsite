@@ -1,32 +1,28 @@
 import List from "antd/lib/list";
 import Space from "antd/lib/space";
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 const Interest = () => {
+    const { t } = useTranslation();
     const data = [
         {
-        title: `🧗‍♀️ 爬山`,
+        title: "climb_mountains",
         src: 'interest_001.JPG',
         avatar: 'https://joeschmoe.io/api/v1/random',
-        content:
-            '我很喜欢爬山，来东京的这三年里陆陆续续把东京周边的山都爬遍了，计划2023年爬富士山～',
+        content: "climb_mountains_detail",
         },
         {
-            title: `⛺️ 露营`,
+            title: "camping",
             src: 'interest_002.JPG',
             avatar: 'https://joeschmoe.io/api/v1/random',
-            content:
-                '是今年新增加的兴趣，感觉很有意思，和大自然特别近，特别轻松',
+            content: "camping_detail",
         },
         {
-            title: `🧙‍♀️ 其他`,
+            title: "other",
             src: 'interest_003.JPG',
             avatar: 'https://joeschmoe.io/api/v1/random',
-            content:
-                `我个人非常喜欢户外运动，周末偶尔会去室内攀岩，
-                郊外徒步等，也很喜欢旅游和吃吃喝喝和玩switch，最近沉迷splatoon3。
-                另外我还是一个哈利波特爱好者。
-                `,
+            content: "other_detail",
         },
     ];
 
@@ -44,7 +40,7 @@ const Interest = () => {
                 paddingBottom: 30
             }}
         >
-            <h1>🎮 我的爱好</h1>
+            <h1>🎮 {t('interest')}</h1>
             <div>
                 <List
                     itemLayout="vertical"
@@ -62,10 +58,10 @@ const Interest = () => {
                             }
                         >
                             <List.Item.Meta
-                                title={item.title}
+                                title={t(item.title)}
                                 // description={item.description}
                             />
-                            {item.content}
+                            {t(item.content)}
                         </List.Item>
                     )}
                 />
